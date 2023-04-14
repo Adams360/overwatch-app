@@ -1,0 +1,79 @@
+{
+    "heroes": [
+      {
+        "id": 1,
+        "name": "doomfist",
+        "type": "tank",
+        "imgPath": "src/assets/heroes/doomfist.png",
+        "description": "Doomfist is the calculating leader of Talon, a terrorist organization and paramilitary force that works in direct opposition to Overwatch.",
+        "location": "Oyo, Nigeria (formerly), Rome, Italy"
+      },
+      {
+        "id": 2,
+        "name": "genji",
+        "type": "damage",
+        "imgPath": "src/assets/heroes/genji.png"
+      },
+      {
+        "id": 3,
+        "name": "hanzo",
+        "type": "damage",
+        "imgPath": "src/assets/heroes/hanzo.png"
+      },
+      {
+        "id": 4,
+        "name": "junkrat",
+        "type": "damage",
+        "imgPath": "src/assets/heroes/junkrat.png"
+      },
+      {
+        "id": 5,
+        "name": "lúcio",
+        "type": "support",
+        "imgPath": "src/assets/heroes/lúcio.png"
+      },
+      {
+        "id": 6,
+        "name": "mercy",
+        "type": "support",
+        "imgPath": "src/assets/heroes/mercy.png"
+      },
+      {
+        "id": 7,
+        "name": "reinhardt",
+        "type": "tank",
+        "imgPath": "src/assets/heroes/reinhardt.png"
+      },
+      {
+        "id": 8,
+        "name": "soldier76",
+        "type": "damage",
+        "imgPath": "src/assets/heroes/soldier76.png"
+      },
+      {
+        "id": 9,
+        "name": "tracer",
+        "type": "damage",
+        "imgPath": "src/assets/heroes/tracer.png"
+      },
+      {
+        "id": 10,
+        "name": "zarya",
+        "type": "tank",
+        "imgPath": "src/assets/heroes/zarya.png"
+      },
+      {
+        "id": 11,
+        "name": "ashe",
+        "type": "damage",
+        "imgPath": "src/assets/heroes/ashe.png"
+      },
+      {
+        "id": 12,
+        "name": "baptiste",
+        "type": "support",
+        "imgPath": "src/assets/heroes/baptiste.png"
+      }
+    ]
+  }
+  
