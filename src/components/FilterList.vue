@@ -1,6 +1,5 @@
 <script setup>
-import { defineEmits } from 'vue'
-const emits = defineEmits(['filterHeroes'])
+defineEmits(['filterHeroes'])
 </script>
 
 <template>
@@ -9,7 +8,7 @@ const emits = defineEmits(['filterHeroes'])
             <button @click="$emit('filterHeroes', 'all')" class="all-btn">All</button>
         </li>
         <li>
-            <button @click="$emit('filterHeroes', 'tank')" class="tank-btn" >Tank</button>
+            <button @click="$emit('filterHeroes', 'tank')" class="tank-btn">Tank</button>
         </li>
         <li>
             <button @click="$emit('filterHeroes', 'damage')" class="damage-btn">Damage</button>

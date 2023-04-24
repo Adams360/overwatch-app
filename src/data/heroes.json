@@ -12,67 +12,89 @@
         "id": 2,
         "name": "genji",
         "type": "damage",
-        "imgPath": "src/assets/heroes/genji.png"
+        "imgPath": "src/assets/heroes/genji.png",
+        "description": "The cyborg ninja Genji Shimada has made peace with the augmented body he once rejected, and in doing so, he has discovered a higher humanity.",
+        "location": "Hanamura, Japan (formerly), Shambali Monastery, Nepal (formerly), Watchpoint: Gibraltar"
       },
       {
         "id": 3,
         "name": "hanzo",
         "type": "damage",
-        "imgPath": "src/assets/heroes/hanzo.png"
+        "imgPath": "src/assets/heroes/hanzo.png",
+        "description": "Mastering his skills as a bowman and an assassin, Hanzo Shimada strives to prove himself as a warrior without peer.",
+        "location": "Hanamura, Japan (formerly)"
       },
       {
         "id": 4,
         "name": "junkrat",
         "type": "damage",
-        "imgPath": "src/assets/heroes/junkrat.png"
+        "imgPath": "src/assets/heroes/junkrat.png",
+        "description": "Junkrat is an explosives-obsessed demolitionist who lives to cause chaos and destruction.",
+        "location": "Junkertown, Australia (formerly)"
       },
       {
         "id": 5,
         "name": "lúcio",
         "type": "support",
-        "imgPath": "src/assets/heroes/lúcio.png"
+        "imgPath": "src/assets/heroes/lúcio.png",
+        "description": "Lúcio is an international celebrity who inspires social change through his music and activism.",
+        "location": "Rio de Janeiro, Brazil"
       },
       {
         "id": 6,
         "name": "mercy",
         "type": "support",
-        "imgPath": "src/assets/heroes/mercy.png"
+        "imgPath": "src/assets/heroes/mercy.png",
+        "description": "A guardian angel to those who come under her care, Dr. Angela Ziegler is a peerless healer, a brilliant scientist, and a staunch advocate for peace.",
+        "location": "Zürich, Switzerland (formerly), Watchpoint: Gibraltar"
       },
       {
         "id": 7,
         "name": "reinhardt",
         "type": "tank",
-        "imgPath": "src/assets/heroes/reinhardt.png"
+        "imgPath": "src/assets/heroes/reinhardt.png",
+        "description": "Reinhardt Wilhelm styles himself as a champion of a bygone age, who lives by the knightly codes of valor, justice, and courage.",
+        "location": "Stuttgart, Germany (formerly), Watchpoint: Gibraltar"
       },
       {
         "id": 8,
         "name": "soldier76",
         "type": "damage",
-        "imgPath": "src/assets/heroes/soldier76.png"
+        "imgPath": "src/assets/heroes/soldier76.png",
+        "description": "The target of an international manhunt, the vigilante known as Soldier: 76 wages a personal war to expose the truth behind Overwatch's collapse.",
+        "location": "Unknown"
       },
       {
         "id": 9,
         "name": "tracer",
         "type": "damage",
-        "imgPath": "src/assets/heroes/tracer.png"
+        "imgPath": "src/assets/heroes/tracer.png",
+        "description": "The former Overwatch agent known as Tracer is a time-jumping adventurer and an irrepressible force for good.",
+        "location": "London, England, Watchpoint: Gibraltar"
       },
       {
         "id": 10,
         "name": "zarya",
         "type": "tank",
-        "imgPath": "src/assets/heroes/zarya.png"
+        "imgPath": "src/assets/heroes/zarya.png",
+        "description": "Aleksandra Zaryanova is one of the world's strongest women, a celebrated athlete who sacrificed personal glory to protect her family, friends, and country in a time of war.",
+        "location": "Krasnoyarsk Front (formerly), Novoanskoye Forward Base, Siberia, Russia (formerly), Watchpoint: Gibraltar"
       },
       {
         "id": 11,
         "name": "ashe",
         "type": "damage",
-        "imgPath": "src/assets/heroes/ashe.png"
+        "imgPath": "src/assets/heroes/ashe.png",
+        "description": "Ashe is the ambitious and calculating leader of the Deadlock Rebels Gang and a respected figure in the criminal underworld.",
+        "location": "Deadlock Gorge, Arizona, USA"
       },
       {
         "id": 12,
         "name": "baptiste",
         "type": "support",
-        "imgPath": "src/assets/heroes/baptiste.png"
+        "imgPath": "src/assets/heroes/baptiste.png",
+        "description": "An elite combat medic and ex-Talon operative, Baptiste now uses his skills to help those whose lives have been impacted by war.",
+        "location": "Tortuga, Haiti (formerly), Watchpoint: Gibraltar"
       }
     ]
   }

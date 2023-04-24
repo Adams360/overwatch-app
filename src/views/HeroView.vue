@@ -1,23 +1,32 @@
 <script setup>
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import heroes from '../data/heroes.json'
 
-const route = useRoute()
-
-const hero = computed(() => {
-    return {
-        name: route.params.name,
-        location: route.params.location,
-        description: route.params.description
+const props = defineProps({
+    id: {
+        type: [String],
+        required: true
     }
 })
+
+const hero = computed(() => {
+    return heroes.heroes.find((h) => h.id === Number(props.id)) || {}
+})
+
+
 </script>
 
 <template>
     <div class="hero-content">
-        <h1 class="heading">Hero Name {{ hero.name }} </h1>
-        <p class="description">Hero Description</p>
-
+        <h1 class="heading">
+            {{ hero?.name }}
+        </h1>
+        <p class="description">
+            {{ hero?.description }}
+        </p>
+        <p class="location">
+            {{ hero?.location }}
+        </p>
         <RouterLink to="/" class="btn">
             Go Back
         </RouterLink>

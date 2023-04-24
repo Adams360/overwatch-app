@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
-import FilterList from '@/components/FilterList.vue'
+import { ref, onBeforeMount, computed, watch } from 'vue'
 
+import FilterList from '@/components/FilterList.vue'
 import HeroCard from '@/components/HeroCard.vue'
 
 const fetchHeroes = async () => {
@@ -12,28 +12,48 @@ const fetchHeroes = async () => {
 
 const heroes = ref([])
 const selectedType = ref('all')
+const query = ref('')
+const filteredHeroes = ref([])
+const searchedHeroes = ref([])
 
-onMounted(async () => {
+onBeforeMount(async () => {
     heroes.value = await fetchHeroes()
+    filteredHeroes.value = heroes.value
+    searchedHeroes.value = filteredHeroes.value
 })
-
-const filteredHeroes = computed(() => 
-selectedType.value === 'all' ? 
-heroes.value : heroes.value.filter(hero => hero.type === selectedType.value))
 
 const filterHeroes = (type) => {
     selectedType.value = type
+    if (type === 'all') {
+        filteredHeroes.value = heroes.value
+    } else {
+        filteredHeroes.value = heroes.value.filter(hero => hero.type === type)
+    }
+    query.value = ''
+    searchedHeroes.value = filteredHeroes.value
 }
 
+const hasResults = computed(() => {
+  return searchedHeroes.value.length > 0
+})
+
+watch(query, (newQuery) => {
+    // when the search query changes, filter heroes based on the query string
+    searchedHeroes.value = filteredHeroes.value.filter(hero => hero.name.toLowerCase().includes(newQuery.toLowerCase()))
+})
 </script>
 
 <template>
     <FilterList @filterHeroes="filterHeroes" />
-    <ul class="cards">
-        <li v-for="hero in filteredHeroes" :key="hero.id">
+
+    <input type="text" placeholder="Search for heroes..." v-model="query">
+
+    <TransitionGroup class="cards reorder" name="list" tag="ul">
+        <li v-for="hero in searchedHeroes" :key="hero.id">
             <HeroCard :hero="hero" />
         </li>
-    </ul>
+        <p v-if="!hasResults">No Results Found</p>
+    </TransitionGroup>
 </template>
 <styles lang="scss" scoped>
 .cards {
@@ -41,82 +61,34 @@ const filterHeroes = (type) => {
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-auto-rows: minmax(250px, 1fr);
+}
 
-    .card {
-        display: grid;
-        grid-template-rows: 1fr max-content;
-        background-color: white;
-        border-radius: 4px;
-        padding: .2rem;
-        text-decoration: none;
+input {
+    display: block;
+    padding: .8rem .5rem;
+    font-size: 1.2rem;
+    width: 53%;
+    font-family: inherit;
+    margin: 0 auto 2rem;
+}
 
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        transition: transform .2s ease-in-out;
 
-        &:hover {
-            transform: scale(1.05);
-        }
+.list-move,
+/* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
 
-        &.is-tank {
-            .card__desc::before {
-                background-image: url('../assets/icons/tank-icon.svg');
-            }
-        }
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
 
-        &.is-damage {
-            .card__desc::before {
-                background-image: url('../assets/icons/damage-icon.svg');
-            }
-        }
-
-        &.is-support {
-            .card__desc::before {
-                background-image: url('../assets/icons/tank-icon.svg');
-            }
-        }
-
-        &__img {
-            display: block;
-
-            img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-
-        &__desc {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: .5rem;
-            padding: .3rem;
-
-            &::before {
-                content: "";
-                width: 24px;
-                height: 24px;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-
-            p {
-                font-size: 18px;
-                text-transform: uppercase;
-                font-weight: 700;
-                color: #242424;
-                line-height: 1;
-            }
-
-            img {
-                width: 24px;
-                height: 24px;
-                object-fit: contain;
-            }
-        }
-    }
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+    position: absolute;
 }
 </styles>
